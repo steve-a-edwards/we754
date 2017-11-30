@@ -1,0 +1,19 @@
+WE754
+
+SOAPUI WSS settings can be found by:
+- double clicking the project
+- clicking the WS-Security Configurations tab
+- clicking the Keystores sub-tab
+in here you should see the file /usr/labfiles/dp/WSSecurity/Client.jks
+To find information about the keystore:
+ $ keytool -v -list -keystore Client.jks
+ <SoapUI_keystores_password> myjkspw
+ private key and certificate (valid until 2022)
+=================================
+=================================
+
+Uses SOAPUI / Ubuntu 14.04
+
+As of September 2016, the environment that is used to support the IBM-supplied images and DataPower gateways is Skytap.
+Each student is supplied an Ubuntu student image and a DataPower gateway.
+The supplied image is Ubuntu 14.04 LTS.

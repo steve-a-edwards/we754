@@ -1,0 +1,88 @@
+WE754 Run Notes
+
+=====================================================================================================
+Exercise 1. Web service encryption and digital signatures
+
+After completing this exercise, you should be able to:
+• Configure a multi-protocol gateway to decrypt and encrypt an XML message
+• Configure a multi-protocol gateway to verify and sign an XML message
+• Test encryption and digital signatures by using the SoapUI tool
+
+Import the BookingServiceProxy service
+- generate keys, certs, Crypto objects
+- WS-Security: signing, verification, encrypting, decrypting
+
+1.1. Initialize the lab environment
+
+1.2. Create cryptographic objects
+Upload the files:  <lab_files>/WSSecurity/
+KeysFromClient-sscert.pem
+KeysFromDP
+- KeysFromDP-privkey.pem
+- KeysFromDP-sscert.pem	(Expires 8/3/18)
+
+1.3. Import the BookingServiceProxy service
+BookingServiceProxy HTTP_12nn1 - 12991 (imported value)
+_4. Use SoapUI to test the service
+*** actually tests backend service, not the one just imported
+*** see WE751-Prep-Notes.txt for details of SOAPUI WSS keystore setup
+
+1.4. Configure BookingServiceProxy to verify a signed message
+SOAPUI sends signed request => DataPower verifies / sends on => WebService (FlyServices)
+WebService (FlyServices) response => DataPower signs => SOAPUI verifies.
+
+Get DP verifying SOAPUI signed message first:
+Rule with matching URL
+/BookingService/sign - actually verifies!
+
+1.5. Test the BookingServiceProxy signature verification
+
+1.6. Configure BookingServiceProxy to sign a message
+DataPower takes the response from the backend and signs it for the SOAPUI to verify.
+The BookingResponse_Transform.xsl seems irrelevant and the exercise notes don't make sense.
+
+1.7. Test that the BookingServiceProxy sends a signed message
+Althought a WSS Verify is placed in SOAPUI (Incoming WSS), there is nothing in this
+exercise that tests verification failure.
+
+1.8. Configure BookingServiceProxy to decrypt a message
+Add decrypt to same 'singing' rule.
+
+1.9. Test the BookingServiceProxy message decryption
+Using probe, can see the encrypted message coming in from SOAPUI, and the decrypted message.
+
+ 1.10. Configure BookingServiceProxy to encrypt the response message
+ 
+ 1.11. Test the BookingServiceProxy message encryption
+ 
+ 1.12. Examine the rule processing by using the multi-step probe
+ =====================================================================================================
+Exercise 2. Configuring a web service proxy
+After completing this exercise, you should be able to:
+• Configure a web service proxy to virtualize an existing web service
+• Configure the service policy within the web service proxy
+<wsp_proxy_port>: 12nn5
+***  also <wsp_booking_port> in notes
+2.1. Create a web service proxy for the Booking Service web service
+BookingServiceWSProxy BookingServiceWSProxyFSH 12995
+FlyServices 9080
+Disable response validation on port-operation: BookTravel
+actual backend response has elements in the wrong order.
+
+2.3. Test the web service proxy processing
+
+2.4. Add an operation-level rule to BookingServiceWSProxy
+
+2.5 Test the web service proxy processing with a Transform rule
+response: ConfirmationCode => ConfirmationText
+
+2.6. Configure message decryption on the web service proxy
+
+2.7. Test the web service proxy processing with decryption added
+2.8. Use the probe to observe the encrypted request message processing
+See SOAPUI http log to see encrypted message being sent.
+Request rule does not show the incoming encrypted messages, since
+the decryption is happening at proxy level before entering rule.
+
+
+
