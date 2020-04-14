@@ -20,6 +20,9 @@ KeysFromClient-sscert.pem
 KeysFromDP
 - KeysFromDP-privkey.pem
 - KeysFromDP-sscert.pem	(Expires 8/3/18)
+Crypto Key:         KeysFromDP     KeysFromDP-privkey.pem
+Crypto Certificate: CertFromDP     KeysFromDP-sscert.pem 	(Expires 8/3/18)
+Crypto Certificate: CertFromClient KeysFromClient-sscert.pem
 
 1.3. Import the BookingServiceProxy service
 BookingServiceProxy HTTP_12nn1 - 12991 (imported value)
