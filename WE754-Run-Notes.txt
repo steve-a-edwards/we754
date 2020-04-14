@@ -15,7 +15,7 @@ Import the BookingServiceProxy service
 1.1. Initialize the lab environment
 
 1.2. Create cryptographic objects
-Upload the files:  <lab_files>/WSSecurity/
+Using WebGUI: Upload the files:  <lab_files>/WSSecurity/
 KeysFromClient-sscert.pem
 KeysFromDP
 - KeysFromDP-privkey.pem
