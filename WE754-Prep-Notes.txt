@@ -1,6 +1,6 @@
 WE754
 
-SOAPUI WSS settings can be found by:
+Booking Services - SOAPUI WSS settings can be found by:
 - double clicking the project
 - clicking the WS-Security Configurations tab
 - clicking the Keystores sub-tab
