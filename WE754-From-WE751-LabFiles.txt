@@ -9,8 +9,12 @@ Need to update from updated-keys:
 DataPower:
 - WSSecurity/KeysFromDP-sscert.pem
 - WSSecurity/KeysFromDP-privkey.pem
+
 Ubuntu / used by SOAPUI:
 - /usr/labfiles/dp/WSSecurity/Client.jks
+-right-click SOPAUI BookingServices project:
+  - Show Project View / WS-Security Configurations / Keystores
+  - ensure entry that references above file
 
 The following does not require any changes as they are
 identical in both WE751 / WE754 LabFiles:
