@@ -1,0 +1,18 @@
+Using WE751 IRLP Image for WE754 Course
+
+WE754 need to add folder
+- <lab_files>/WSSecurity
+from:
+- we7541labfiles
+
+Need to update from updated-keys:
+DataPower:
+- WSSecurity/KeysFromDP-sscert.pem
+- WSSecurity/KeysFromDP-privkey.pem
+Ubuntu / used by SOAPUI:
+- /usr/labfiles/dp/WSSecurity/Client.jks
+
+The following does not require any changes as they are
+identical in both WE751 / WE754 LabFiles:
+<lab_files>/BookingService/BookingService.wsdl
+<lab_files>/BookingService/BookingResponse_Transform.xsl
